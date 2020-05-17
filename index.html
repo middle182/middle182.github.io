@@ -344,11 +344,12 @@
 			if(h<3){
 				$('.ucapan').text('Have a Nice Dreams :)');
 			}else if(h<5){
-				if(m<30){
-					$('.ucapan').text('Bangun Bangun Sahur :)');
-				}else{
-					$('.ucapan').text('Pagi Ismi ^-^');
+				if(h == 4){
+					if(m>30){
+						$('.ucapan').text('Pagi Ismi ^-^');
+					}
 				}
+				$('.ucapan').text('Bangun Bangun Sahur :)');
 			}else if(h<8){
 				$('.ucapan').text('Pagi Ismi ^-^');
 			}else if(h<12){
