@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SIMP</title>
+    <link rel="shortcut icon" type="text/css" href="unnamed.png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			overflow: hidden;
+		}
+		.bg{
+			width: 100%;
+			height: 100vh;
+			background: url("253796.jpg");
+			background-size: cover;
+			background-position: center;
+			position: absolute;
+			z-index: 1;
+			filter: blur(15px);
+			-webkit-filter: blur(15px);
+		}
+		.bg-dark{
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.6);
+			position: absolute;
+			overflow: hidden
+		}
+		.time{
+			margin: 0;
+            padding: 0;
+            position: absolute;
+	  		font-size: 30pt;
+	  		left: 50%;
+			top: 30%;
+			color: #fff;
+			font-family: 'arial';
+	  		transform: translate(-50%,calc(50% - 0px));
+			  z-index: 2;
+		}
+		.ucapan{
+			margin: 0;
+            padding: 15px 25px;
+			background: rgba(255,255,255,0.8);
+            position: absolute;
+	  		font-size: 10pt;
+	  		left: 50%;
+			top :45%;
+			font-family: 'arial';
+			color:#111;
+			border-radius: 10px;
+	  		transform: translate(-50%,calc(50% - 0px));
+			  z-index: 2;
+		}
+		.tanggal{
+			margin: 0;
+            padding: 0;
+            position: absolute;
+	  		font-size: 10pt;
+	  		left: 50%;
+			top :40%;
+			font-family: 'arial';
+			color:#fff;
+	  		transform: translate(-50%,calc(50% - 0px));
+			  z-index: 2;
+		}
+		.tap{
+			margin: 0;
+            padding: 10px 25px;
+            position: absolute;
+	  		font-size: 10pt;
+	  		left: 50%;
+			top :45%;
+			background: rgba(0,0,0,0.5);
+			font-family: 'arial';
+			color:#eee;
+			border-radius: 10px;
+	  		transform: translate(-50%,calc(50% - 0px));
+			  z-index: 3;
+		}
+		.quotes-wrap{
+			margin: 0;
+            padding: 0;
+            position: absolute;
+	  		font-size: 10pt;
+			top :80%;
+			font-family: 'arial';
+			color:#eee;
+			text-decoration: italic;
+			width: 250px;
+			text-align: center;
+			z-index: 5;
+		}
+		.kotak{
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			height: 100%;
+  			overflow: hidden;
+  		}
+  		.kotak li{
+  			position: absolute;
+  			display: block;
+  			list-style: none;
+  			width: 25px;
+  			height: 25px;
+  			background: rgba(255,255,255,0.2);
+  			animation: animate 20s linear infinite; 
+  			bottom: -150px;
+  			transition: all 1s ease;
+  		}
+  		.kotak li:nth-child(1){
+  			left: 86%;
+  			width: 80px;
+  			height: 80px;
+			background: rgba(41,98,255,0.3);
+  			animation-delay: 0s;
+  		}
+  		.kotak li:nth-child(2){
+  			left: 12%;
+  			width: 40px;
+  			height: 40px;
+			  background: rgba(214,4,4,0.3);
+  			animation-delay: 1.5s;
+  			animation-duration: 10s;
+  		}
+  		.kotak li:nth-child(3){
+  			left: 70%;
+  			width: 100px;
+  			height: 100px;
+			  background:  url("IMG-20200114-WA0017.jpg");
+			  background-position: center;
+			  background-size: cover;
+  			animation-delay: 5.5s;
+  		}
+  		.kotak li:nth-child(4){
+  			left: 42%;
+  			width: 150px;
+  			height: 150px;
+			background:url("IMG-20180114-WA0048.jpg");
+			background-position: center;
+			background-size: cover;
+  			animation-delay: 0s;
+  			animation-duration: 15s; 
+  		}
+  		.kotak li:nth-child(5){
+  			left: 15%;
+  			width: 110px;
+  			height: 110px;
+			background: url("IMG-20200516-WA0008.jpg");
+			background-position: center;
+			background-size: cover;
+  			animation-delay: 3.5s;
+		}
+		.kotak li:nth-child(6){
+  			left: 45%;
+  			width: 90px;
+  			height: 90px;
+			background: url("IMG-20170524-WA0084.jpg");
+			background-position: center;
+			background-size: cover;
+  			animation-delay: 1s;
+			  animation-duration: 25s;
+  		}
+		.kotak li:nth-child(7){
+  			left: 5%;
+  			width: 100px;
+  			height: 100px;
+			background: url("c950efe7-96fa-4f3c-8bcc-38d7ffc74e84.jpg");
+			background-position: center;
+			background-size: cover;
+  			animation-delay: 0s;
+			  animation-duration: 20s;
+  		}
+		.kotak li:nth-child(8){
+  			left: 30%;
+  			width: 70px;
+  			height: 70px;
+			  background: rgba(248,189,1,0.3);
+  			animation-duration: 10s;
+		}
+		.kotak li:nth-child(9){
+  			left: 17%;
+  			width: 60px;
+  			height: 60px;
+			background: url("IMG-20170818-WA0023.jpg");
+			background-position: center;
+			background-size: cover;
+  			animation-delay: 12s;
+		}
+		.bulat{
+  			position: absolute;
+  			width: 600px;
+  			height: 600px;
+  			display: flex;
+  			left:50%;
+	  		bottom: 50%;
+	  		transform: translate(-50%,50%) scale(0);
+	  		transition: 3s all ease;
+  		}
+  		.bulat span:nth-child(1){
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			height: 100%;
+  			border: 2px solid #fff;
+  			border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  			transition: 0.5s;
+  			animation: animate2 6s linear infinite;
+  		}
+  		.bulat span:nth-child(2){
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			height: 100%;
+  			border: 2px solid #fff;
+  			border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  			transition: 0.5s;
+  			animation: animate3 4s linear infinite;
+  		}
+  		.bulat span:nth-child(3){
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			height: 100%;
+  			border: 5px solid #fff;
+  			border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  			transition: 0.5s;
+  			animation: animate2 10s linear infinite;
+  		}
+		@keyframes animate{
+  			0%{
+  				transform: translateY(0) rotate(0deg);
+  				opacity: 1;
+  			}
+  			100%{
+  				transform: translateY(-100vh) rotate(360deg);
+  				opacity: 0;
+  			}
+  		}
+		@keyframes animate2{
+  			0%{
+  				transform:rotate(0deg);
+  			}
+  			100%{
+  				transform:rotate(360deg);
+  			}
+  		}
+		@keyframes animate3{
+  			0%{
+  				transform:rotate(360deg);
+  			}
+  			100%{
+  				transform:rotate(0deg);
+  			}
+  		}
+		@keyframes animate4{
+  			0%{
+  				filter:blur(10px);
+				-webkit-filter:blur(10px);
+  			}
+  			100%{
+				filter:blur(0px);
+				-webkit-filter:blur(0px);
+  			}
+  		}
+		@media(max-width: 767px){
+			.time{
+				font-size: 25pt;
+			}
+			.ucapan{
+				padding: 10px 15px;
+			}
+		}
+	</style>
+	<script>
+        $(document).ready(function(){
+            $(window).ready(function(){
+				var height = window.innerHeight;
+				var width = window.innerWidth;
+				$(".bg").css({"height": height});
+            });
+        });
+    </script>
+</head>
+<body>
+	<div class="blur"></div>
+	<p class='tap'>Tap Anywhere!</p>
+	<div class="bg">
+		<div class="bg-dark">
+			<p id="time" class="time"></p>
+			<p class="ucapan"></p>
+			<p class="tanggal"></p>
+			<div class="quotes-wrap"> 
+				<i><p class="quotation"></p></i>
+			</div>
+			<audio id="playAudio" loop>
+				<source src="Call You Mine - Jeff Bernat.mp3" type="audio/mpeg">
+			</audio>
+			<ul class="kotak">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="bulat">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<script>
+		playAudio();
+		mytanggal();
+		waktu();
+		function waktu() {
+			var waktu = new Date();
+			setTimeout("waktu()", 1000);
+			h = waktu.getHours();
+			m = waktu.getMinutes();
+			s = waktu.getSeconds();
+			if(m < 10){
+				m = '0'+m;
+			}
+			if(s < 10){
+				s = '0'+s;
+			}
+			document.getElementById("time").innerHTML = h + ' : ' + m + ' : ' + s;
+			if(h<3){
+				$('.ucapan').text('Have a Nice Dreams :)');
+			}else if(h<5){
+				if(m<30){
+					$('.ucapan').text('Bangun Bangun Sahur :)');
+				}else{
+					$('.ucapan').text('Pagi Ismi ^-^');
+				}
+			}else if(h<8){
+				$('.ucapan').text('Pagi Ismi ^-^');
+			}else if(h<12){
+				$('.ucapan').text('Be Happy Today :)');
+				if(m>50){
+					$('.ucapan').text('Sholat sholat ^-^');	
+				}
+			}else if(h<13){
+				$('.ucapan').text('Sholat sholat ^-^');
+			}else if(h<15){
+				$('.ucapan').text('Be Happy Today :)');
+			}else if(h<16){
+				$('.ucapan').text('Sholat sholat ^-^');
+			}else if(h<19){
+				$('.ucapan').text("Selamat Berbuka Ismi :)");
+			}else if(h<24){
+				$('.ucapan').text("Have a Good Night Ismi :)");
+			}
+		}
+		function playAudio() { 
+			document.addEventListener('click',musicPlay);
+			function musicPlay(){
+				var x = document.getElementById("playAudio");
+				x.play();
+				document.removeEventListener('click', musicPlay);
+				$('.tap').remove();
+				// setTimeout(blur(),3000);
+				// function blur(){
+					$('.bg').css({"animation": "animate4 2s linear", "filter":"blur(0px)", "-webkit-filter":"blur(0px)"});
+				// }
+			}
+			
+		}
+		function mytanggal(){
+			var hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+			var bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'Nopember', 'Desember'];
+			var d = new Date();
+			var dayName = hari[d.getDay()];
+			var monthName = bulan[d.getMonth()];
+			var year = d.getFullYear();
+			tanggal=(dayName+', '+d.getDate()+' '+monthName +' '+year);
+			$('.tanggal').text(tanggal);
+		}
+		const quotes = [
+			  
+			{
+				"quote":"Kamu tau apa yang membuatku bahagia?\nBaca kata pertama. :)"
+			},
+			{
+				"quote":"Intuisiku berujung padamu."
+			},
+			{
+				"quote":"Mencintaimu dalam diam, menyebut namamu disetiap Qiyam."
+			},
+			{
+				"quote":"Mencintaimu dalam diam, menyebut namamu disetiap Qiyam."
+			},
+			{
+				"quote":"Bagiku memilih itu susah, tapi bertahan pada pilihan itu jauh lebih susah."
+			},
+			{
+				"quote":"Lebih baik sakit hati karena memendam cerita? Apa sakit hati karena telah mengungkapnya?"
+			},
+			  
+		]
+		setInterval(randomQuote, 5000);
+		function randomQuote(){
+			let random = quotes[Math.floor(Math.random() * quotes.length)];
+			$('.quotation').fadeOut(500, function(){
+				  $(this).text(`"${random.quote}"`).fadeIn('500');
+			});
+			$(".quotes-wrap").css({"left":(window.innerWidth-$('.quotes-wrap').width())/2});
+		}
+		randomQuote();
+
+	</script>
+</body>
+</html>
