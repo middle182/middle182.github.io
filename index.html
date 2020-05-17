@@ -15,19 +15,20 @@
 		}
 		.bg{
 			width: 100%;
-/* 			height: 100vh; */
-			background: url("253796.jpg");
+			height: 100vh;
+			/* background: url("253796.jpg"); */
 			background-size: cover;
 			background-position: center;
 			position: absolute;
 			z-index: 1;
+            
 			filter: blur(15px);
 			-webkit-filter: blur(15px);
 		}
 		.bg-dark{
 			width: 100%;
 			height: 100%;
-			background-color: rgba(0,0,0,0.6);
+			/* background-color: rgba(0,0,0,0.6); */
 			position: absolute;
 			overflow: hidden
 		}
@@ -237,6 +238,18 @@
   			transition: 0.5s;
   			animation: animate2 10s linear infinite;
   		}
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: 1;
+            align-items: center;
+            
+			filter: blur(15px);
+			-webkit-filter: blur(15px);
+        }
 		@keyframes animate{
   			0%{
   				transform: translateY(0) rotate(0deg);
@@ -293,8 +306,10 @@
     </script>
 </head>
 <body>
-	<div class="blur"></div>
-	<p class='tap'>Tap Anywhere!</p>
+	<video autoplay loop id="myVideo">
+        <source src="Night Sky Loop-1.mp4" type="video/mp4">
+    </video>
+    <p class='tap'>Tap Anywhere!</p>
 	<div class="bg">
 		<div class="bg-dark">
 			<p id="time" class="time"></p>
@@ -306,22 +321,7 @@
 			<audio id="playAudio" loop>
 				<source src="Call You Mine - Jeff Bernat.mp3" type="audio/mpeg">
 			</audio>
-			<ul class="kotak">
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
-			<div class="bulat">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
+			
 		</div>
 	</div>
 	<script>
@@ -371,13 +371,14 @@
 		function playAudio() { 
 			document.addEventListener('click',musicPlay);
 			function musicPlay(){
-				var x = document.getElementById("playAudio");
-				x.play();
+                var y = document.getElementById("myVideo");
+				y.play();
 				document.removeEventListener('click', musicPlay);
 				$('.tap').remove();
 				// setTimeout(blur(),3000);
 				// function blur(){
 					$('.bg').css({"animation": "animate4 2s linear", "filter":"blur(0px)", "-webkit-filter":"blur(0px)"});
+					$('#myVideo').css({"animation": "animate4 2s linear", "filter":"blur(0px)", "-webkit-filter":"blur(0px)"});
 				// }
 			}
 			
