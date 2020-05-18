@@ -16,14 +16,14 @@
 		.bg{
 			width: 100%;
 			height: 100vh;
-			/* background: url("253796.jpg"); */
+			background: url("253796.jpg");
 			background-size: cover;
 			background-position: center;
 			position: absolute;
 			z-index: 1;
             
-			filter: blur(15px);
-			-webkit-filter: blur(15px);
+/* 			filter: blur(15px);
+			-webkit-filter: blur(15px); */
 		}
 		.bg-dark{
 			width: 100%;
@@ -306,10 +306,10 @@
     </script>
 </head>
 <body>
-	<video autoplay loop id="myVideo">
+<!-- 	<video autoplay loop id="myVideo">
         <source src="Night Sky Loop-1.mp4" type="video/mp4">
     </video>
-    <p class='tap'>Tap Anywhere!</p>
+    <p class='tap'>Tap Anywhere!</p> -->
 	<div class="bg">
 		<div class="bg-dark">
 			<p id="time" class="time"></p>
@@ -369,21 +369,21 @@
 				$('.ucapan').text("Have a Good Night Ismi :)");
 			}
 		}
-		function playAudio() { 
-			document.addEventListener('click',musicPlay);
-			function musicPlay(){
-                var y = document.getElementById("myVideo");
-				y.play();
-				document.removeEventListener('click', musicPlay);
-				$('.tap').remove();
-				// setTimeout(blur(),3000);
-				// function blur(){
-					$('.bg').css({"animation": "animate4 2s linear", "filter":"blur(0px)", "-webkit-filter":"blur(0px)"});
-					$('#myVideo').css({"animation": "animate4 2s linear", "filter":"blur(0px)", "-webkit-filter":"blur(0px)"});
-				// }
-			}
+// 		function playAudio() { 
+// 			document.addEventListener('click',musicPlay);
+// 			function musicPlay(){
+//                 var y = document.getElementById("myVideo");
+// 				y.play();
+// 				document.removeEventListener('click', musicPlay);
+// 				$('.tap').remove();
+// 				// setTimeout(blur(),3000);
+// 				// function blur(){
+// 					$('.bg').css({"animation": "animate4 2s linear", "filter":"blur(0px)", "-webkit-filter":"blur(0px)"});
+// 					$('#myVideo').css({"animation": "animate4 2s linear", "filter":"blur(0px)", "-webkit-filter":"blur(0px)"});
+// 				// }
+// 			}
 			
-		}
+// 		}
 		function mytanggal(){
 			var hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 			var bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'Nopember', 'Desember'];
